@@ -20,20 +20,20 @@
         <%= render "layouts/application_header" %>
         <%= render "layouts/application_sidebar" %>
         <div class="content-wrapper">
-            <!-- Content Header (Page header) -->
-            <% flash.each do |name, msg| %>
-              <%= content_tag :div, :class => "alert alert-#{ name == :error ? "danger" : "success" } alert-dismissable", :role => "alert" do %>
-                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
-                <%= msg %>	            
-              <% end %>
+          <!-- Content Header (Page header) -->
+          <% flash.each do |name, msg| %>
+            <%= content_tag :div, :class => "alert alert-#{ name == :error ? "danger" : "success" } alert-dismissable", :role => "alert" do %>
+              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
+              <%= msg %>	            
             <% end %>
-            <%= yield %>
-          <!-- /.content -->
-          </div>
+          <% end %>
+          <%= yield %>
+        <!-- /.content -->
+        </div>
 
         <footer class="main-footer">
           <div class="pull-right hidden-xs">
-            <b>Version</b> 1.0.0
+            <b>Version</b> 0.0.1
           </div>
           <strong>Copyright &copy; 2017 <a href="http://dijekarim.com">Dijekarim</a>.</strong> All rights reserved.
         </footer>
