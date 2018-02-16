@@ -2,13 +2,52 @@
 <html>
   <head>
     <title>ArtaTest</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'false' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'false' %>
     <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <!-- Font Awesome -->
+  	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+  	<!-- Ionicons -->
+  	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
   </head>
 
-  <body>
-    <%= yield %>
-  </body>
+  <% if user_signed_in? %>
+    <body class="hold-transition skin-blue sidebar-mini">
+      <div class="wrapper">
+        <%= render "layouts/application_header" %>
+        <%= render "layouts/application_sidebar" %>
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <% flash.each do |name, msg| %>
+              <%= content_tag :div, :class => "alert alert-#{ name == :error ? "danger" : "success" } alert-dismissable", :role => "alert" do %>
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
+                <%= msg %>	            
+              <% end %>
+            <% end %>
+            <%= yield %>
+          <!-- /.content -->
+          </div>
+
+        <footer class="main-footer">
+          <div class="pull-right hidden-xs">
+            <b>Version</b> 1.0.0
+          </div>
+          <strong>Copyright &copy; 2017 <a href="http://dijekarim.com">Dijekarim</a>.</strong> All rights reserved.
+        </footer>
+      </div>
+    </body>
+  <% else %>
+    <body class="hold-transition login-page">
+      <% flash.each do |name, msg| %>
+        <%= content_tag :div, :class => "alert alert-#{ name == :error ? "danger" : "success" } alert-dismissable", :role => "alert" do %>
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
+          <%= msg %>	            
+        <% end %>
+      <% end %>
+      <%= yield %>
+    </body>
+  <% end %>
 </html>

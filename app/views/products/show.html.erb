@@ -1,14 +1,29 @@
-<p id="notice"><%= notice %></p>
+<section class="content-header">
+  <h1> 
+  &nbsp; Product <small> List </small></h1>
+  <ol class="breadcrumb">
+    <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
+    <li class="active">Master Product</li>
+  </ol>
+</section>
 
-<p>
-  <strong>Nama:</strong>
-  <%= @product.nama %>
-</p>
-
-<p>
-  <strong>Kode:</strong>
-  <%= @product.kode %>
-</p>
-
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+<section class="content">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="box">
+        <div class="box-body">
+          <dl class="dl-horizontal">
+            <dt>Kode Product:</dt>
+            <dd><%= @product.kode %></dd>
+            <dt>Nama:</dt>
+            <dd><%= @product.nama %></dd>
+          </dl>
+        </div><!-- /.box-body -->
+        <div class="box-footer">
+          <%= link_to 'Edit', edit_product_path(@product), class: "btn btn-warning pull-right" %>
+          <%= link_to 'Back', products_path, class: "btn btn-default" %>
+        </div>
+      </div><!-- /.box -->
+    </div>
+  </div>
+</section>
