@@ -1,24 +1,27 @@
-# README
+# How to run this app locally
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+1. Clone this repo :
+```
+$ git clone https://github.com/dijekarim/arta_test.git
+``` 
 
-Things you may want to cover:
+2. Use rvm and select ruby version (2.4.1 recommended):
+```
+$ rvm use 2.4.1
+```
 
-* Ruby version
+3. Bundle install :
+```
+$ bundle install
+```
 
-* System dependencies
+4. Migrate db :
+```
+$ rails db:create
+$ rails db:migrate
+```
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+5. Run rails server :
+```
+$ rails s
+```
